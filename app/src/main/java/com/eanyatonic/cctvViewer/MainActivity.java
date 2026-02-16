@@ -61,86 +61,9 @@ public class MainActivity extends AppCompatActivity {
     private int currentWebView = 0; // 正在使用的webView
     private boolean isChanging = false; // 是否正在换台
 
-        private final String[] liveUrls = { "https://tv.cctv.com/live/cctv1", "https://tv.cctv.com/live/cctv2", 
-            "https://tv.cctv.com/live/cctv3", "https://tv.cctv.com/live/cctv4", "https://tv.cctv.com/live/cctv5", 
-            "https://tv.cctv.com/live/cctv5plus", "https://tv.cctv.com/live/cctv6", "https://tv.cctv.com/live/cctv7", 
-            "https://tv.cctv.com/live/cctv8", "https://tv.cctv.com/live/cctvjilu", "https://tv.cctv.com/live/cctv10", 
-            "https://tv.cctv.com/live/cctv11", "https://tv.cctv.com/live/cctv12", "https://tv.cctv.com/live/cctv13", 
-            "https://tv.cctv.com/live/cctvchild", "https://tv.cctv.com/live/cctv15", "https://tv.cctv.com/live/cctv16", 
-            "https://tv.cctv.com/live/cctv17", "https://tv.cctv.com/live/cctveurope", "https://tv.cctv.com/live/cctvamerica", 
-            "https://www.yangshipin.cn/tv/home?pid=600002264", "https://www.yangshipin.cn/tv/home?pid=600099658", 
-            "https://www.yangshipin.cn/tv/home?pid=600099655", "https://www.yangshipin.cn/tv/home?pid=600099620", 
-            "https://www.yangshipin.cn/tv/home?pid=600002309", "https://www.yangshipin.cn/tv/home?pid=600002521", 
-            "https://www.yangshipin.cn/tv/home?pid=600002483", "https://www.yangshipin.cn/tv/home?pid=600002520", 
-            "https://www.yangshipin.cn/tv/home?pid=600002475", "https://www.yangshipin.cn/tv/home?pid=600002508", 
-            "https://www.yangshipin.cn/tv/home?pid=600002485", "https://www.yangshipin.cn/tv/home?pid=600002509", 
-            "https://www.yangshipin.cn/tv/home?pid=600002498", "https://www.yangshipin.cn/tv/home?pid=600002506", 
-            "https://www.yangshipin.cn/tv/home?pid=600002531", "https://www.yangshipin.cn/tv/home?pid=600002481", 
-            "https://www.yangshipin.cn/tv/home?pid=600002516", "https://www.yangshipin.cn/tv/home?pid=600002525", 
-            "https://www.yangshipin.cn/tv/home?pid=600002484", "https://www.yangshipin.cn/tv/home?pid=600002490", 
-            "https://www.yangshipin.cn/tv/home?pid=600002503", "https://www.yangshipin.cn/tv/home?pid=600002505", 
-            "https://www.yangshipin.cn/tv/home?pid=600002532", "https://www.yangshipin.cn/tv/home?pid=600002493", 
-            "https://www.yangshipin.cn/tv/home?pid=600002513", "https://www.gdtv.cn/tvChannelDetail/43", 
-            "https://www.gdtv.cn/tvChannelDetail/44", "https://www.gdtv.cn/tvChannelDetail/45", "https://www.gdtv.cn/tvChannelDetail/48", 
-            "https://www.gdtv.cn/tvChannelDetail/47", "https://www.gdtv.cn/tvChannelDetail/51", "https://www.gdtv.cn/tvChannelDetail/46", 
-            "https://www.gdtv.cn/tvChannelDetail/49", "https://www.gdtv.cn/tvChannelDetail/53", "https://www.gdtv.cn/tvChannelDetail/16", 
-            "https://www.gdtv.cn/tvChannelDetail/54", "https://www.gdtv.cn/tvChannelDetail/66", "https://www.gdtv.cn/tvChannelDetail/42", 
-            "https://www.gdtv.cn/tvChannelDetail/15", "https://www.gdtv.cn/tvChannelDetail/13", "https://www.gdtv.cn/tvChannelDetail/74", 
-            "https://www.gdtv.cn/tvChannelDetail/100", "https://www.gdtv.cn/tvChannelDetail/94", "https://www.gdtv.cn/tvChannelDetail/99", 
-            "https://www.gdtv.cn/tvChannelDetail/75", "https://www.gdtv.cn/tvChannelDetail/102", "https://www.gdtv.cn/tvChannelDetail/104", 
-            "https://www.sztv.com.cn/pindao/index.html?id=7867", "https://www.sztv.com.cn/pindao/index.html?id=7868", 
-            "https://www.sztv.com.cn/pindao/index.html?id=7880", "https://www.sztv.com.cn/pindao/index.html?id=7874", 
-            "https://www.sztv.com.cn/pindao/index.html?id=7871", "https://www.sztv.com.cn/pindao/index.html?id=7872", 
-            "https://www.sztv.com.cn/pindao/index.html?id=7881", "https://www.sztv.com.cn/pindao/index.html?id=7869", 
-            "https://www.sztv.com.cn/pindao/index.html?id=7878", "https://www.sztv.com.cn/pindao/index.html?id=7944", 
-            "https://tv.gxtv.cn/channel/channelivePlay_e7a7ab7df9fe11e88bcfe41f13b60c62.html", "https://tv.gxtv.cn/channel/channelivePlay_f3335975f9fe11e88bcfe41f13b60c62.html", 
-            "https://tv.gxtv.cn/channel/channelivePlay_fdbaf085f9fe11e88bcfe41f13b60c62.html", "https://tv.gxtv.cn/channel/channelivePlay_5e923d82058e11e9ba67e41f13b60c62.html", 
-            "https://tv.gxtv.cn/channel/channelivePlay_9dfd8600075811e9ba67e41f13b60c62.html", "https://tv.gxtv.cn/channel/channelivePlay_bfa17b64157f11e999f0e41f13b60c62.html", 
-            "https://tv.gxtv.cn/channel/channelivePlay_ed58bc4a207811e999f0e41f13b60c62.html", "https://tv.gxtv.cn/channel/channelivePlay_78dbfd44e6b74ab687204d2d8113cbf5.html", 
-            "https://tv.gxtv.cn/channel/channelivePlay_ffa6b6e1b32b4a16a73eb3ef66f8bfc7.html", "https://tv.gxtv.cn/channel/channelivePlay_80d0ffb42c114eaf9663708629ff0a3e.html", 
-            "https://tv.gxtv.cn/channel/channelivePlay_67eace939278435bb4bca90800fb4225.html", "https://www.hebtv.com/19/19js/st/xdszb/index.shtml?index=0", 
-            "https://www.hebtv.com/19/19js/st/xdszb/index.shtml?index=1", "https://www.hebtv.com/19/19js/st/xdszb/index.shtml?index=2", 
-            "https://www.hebtv.com/19/19js/st/xdszb/index.shtml?index=3", "https://www.hebtv.com/19/19js/st/xdszb/index.shtml?index=4", 
-            "https://www.hebtv.com/19/19js/st/xdszb/index.shtml?index=5", "https://www.hebtv.com/19/19js/st/xdszb/index.shtml?index=6", 
-            "https://live.mgtv.com/?channelId=280", "https://live.mgtv.com/?channelId=344", "https://live.mgtv.com/?channelId=221", 
-            "https://live.mgtv.com/?channelId=346", "https://live.mgtv.com/?channelId=484", "https://live.mgtv.com/?channelId=316", 
-            "https://live.mgtv.com/?channelId=261", "https://live.mgtv.com/?channelId=287", "https://live.mgtv.com/?channelId=229", 
-            "https://live.mgtv.com/?channelId=329", "https://live.mgtv.com/?channelId=578", "https://live.mgtv.com/?channelId=218", 
-            "https://live.mgtv.com/?channelId=269", "https://live.mgtv.com/?channelId=254", "http://tc.hnntv.cn/", 
-            "https://www.hnntv.cn/live.html?playType=livePlay&channelId=5&referPage=home", "https://www.hnntv.cn/live.html?playType=livePlay&channelId=1&referPage=home", 
-            "https://www.hnntv.cn/live.html?playType=livePlay&channelId=3&referPage=home", "https://www.hnntv.cn/live.html?playType=livePlay&channelId=4&referPage=home", 
-            "https://www.hnntv.cn/live.html?playType=livePlay&channelId=6&referPage=home", "https://www.hnntv.cn/live.html?playType=livePlay&channelId=7&referPage=home", 
-            "http://live.snrtv.com/star", "http://live.snrtv.com/1", "http://live.snrtv.com/2", "http://live.snrtv.com/3", 
-            "http://www.snrtv.com/snr_dssps/a/2021/08/28/19915184.html", "http://live.snrtv.com/5", "http://live.snrtv.com/7", 
-            "http://live.snrtv.com/nl", "http://live.snrtv.com/11", "https://www.nmtv.cn/liveTv#0", "https://www.nmtv.cn/liveTv#1", 
-            "https://www.nmtv.cn/liveTv#2", "https://www.nmtv.cn/liveTv#3", "https://www.nmtv.cn/liveTv#4", 
-            "https://www.nmtv.cn/liveTv#5", "https://www.nmtv.cn/liveTv#6", "https://www.nmtv.cn/liveTv#7", 
-            "https://www.yntv.cn/live.html#0", "https://www.yntv.cn/live.html#1", "https://www.yntv.cn/live.html#2", 
-            "https://www.yntv.cn/live.html#3", "https://www.yntv.cn/live.html#4", "https://www.yntv.cn/live.html#5", 
-            "https://www.btzx.com.cn/special/bofang/btzxjmd/index.shtml", "https://www.sxrtv.com/tv/index.shtml#0", 
-            "https://www.sxrtv.com/tv/index.shtml#1", "https://www.sxrtv.com/tv/index.shtml#2", "https://www.sxrtv.com/tv/index.shtml#3", 
-            "https://www.sxrtv.com/tv/index.shtml#4", "https://www.sxrtv.com/tv/index.shtml#5" };
+            private final String[] liveUrls = { "https://tv.cctv.com/live/cctv1", "https://tv.cctv.com/live/cctv2", "https://tv.cctv.com/live/cctv3", "https://tv.cctv.com/live/cctv4", "https://tv.cctv.com/live/cctv5", "https://tv.cctv.com/live/cctv5plus", "https://tv.cctv.com/live/cctv6", "https://tv.cctv.com/live/cctv7", "https://tv.cctv.com/live/cctv8", "https://tv.cctv.com/live/cctvjilu", "https://tv.cctv.com/live/cctv10", "https://tv.cctv.com/live/cctv11", "https://tv.cctv.com/live/cctv12", "https://tv.cctv.com/live/cctv13", "https://tv.cctv.com/live/cctvchild", "https://tv.cctv.com/live/cctv15", "https://tv.cctv.com/live/cctv16", "https://tv.cctv.com/live/cctv17", "https://tv.cctv.com/live/cctveurope", "https://tv.cctv.com/live/cctvamerica", "https://www.yangshipin.cn/tv/home?pid=600002264", "https://www.yangshipin.cn/tv/home?pid=600099658", "https://www.yangshipin.cn/tv/home?pid=600099655", "https://www.yangshipin.cn/tv/home?pid=600099620", "https://www.yangshipin.cn/tv/home?pid=600002309", "https://www.yangshipin.cn/tv/home?pid=600002521", "https://www.yangshipin.cn/tv/home?pid=600002483", "https://www.yangshipin.cn/tv/home?pid=600002520", "https://www.yangshipin.cn/tv/home?pid=600002475", "https://www.yangshipin.cn/tv/home?pid=600002508", "https://www.yangshipin.cn/tv/home?pid=600002485", "https://www.yangshipin.cn/tv/home?pid=600002509", "https://www.yangshipin.cn/tv/home?pid=600002498", "https://www.yangshipin.cn/tv/home?pid=600002506", "https://www.yangshipin.cn/tv/home?pid=600002531", "https://www.yangshipin.cn/tv/home?pid=600002481", "https://www.yangshipin.cn/tv/home?pid=600002516", "https://www.yangshipin.cn/tv/home?pid=600002525", "https://www.yangshipin.cn/tv/home?pid=600002484", "https://www.yangshipin.cn/tv/home?pid=600002490", "https://www.yangshipin.cn/tv/home?pid=600002503", "https://www.yangshipin.cn/tv/home?pid=600002505", "https://www.yangshipin.cn/tv/home?pid=600002532", "https://www.yangshipin.cn/tv/home?pid=600002493", "https://www.yangshipin.cn/tv/home?pid=600002513", "https://www.gdtv.cn/tvChannelDetail/43", "https://www.sztv.com.cn/pindao/index.html?id=7867", "https://www.sztv.com.cn/pindao/index.html?id=7868", "https://www.hnntv.cn/live.html?playType=livePlay&channelId=5&referPage=home", "https://www.nmtv.cn/liveTv#0", "https://www.nmtv.cn/liveTv#2", "https://www.nmtv.cn/liveTv#5", "https://www.nmtv.cn/liveTv#7", "https://www.yntv.cn/live.html#0", "https://www.yntv.cn/live.html#1", "https://www.yntv.cn/live.html#2", "https://www.yntv.cn/live.html#3", "https://www.yntv.cn/live.html#4" };
 
-        private final String[] channelNames = { "1 CCTV-1 综合", "2 CCTV-2 财经", "3 CCTV-3 综艺", "4 CCTV-4 中文国际（亚）", 
-            "5 CCTV-5 体育", "6 CCTV-5+ 体育赛事", "7 CCTV-6 电影", "8 CCTV-7 国防军事", "9 CCTV-8 电视剧", "10 CCTV-9 纪录", 
-            "11 CCTV-10 科教", "12 CCTV-11 戏曲", "13 CCTV-12 社会与法", "14 CCTV-13 新闻", "15 CCTV-14 少儿", "16 CCTV-15 音乐", 
-            "17 CCTV-16 奥林匹克", "18 CCTV-17 农业农村", "19 CCTV-4 中文国际（欧）", "20 CCTV-4 中文国际（美）", "21 CCTV4k", 
-            "22 CCTV风云剧场", "23 CCTV第一剧场", "24 CCTV怀旧剧场", "25 北京卫视", "26 江苏卫视", "27 东方卫视", "28 浙江卫视", 
-            "29 湖南卫视", "30 湖北卫视", "31 广东卫视", "32 广西卫视", "33 黑龙江卫视", "34 海南卫视", "35 重庆卫视", "36 深圳卫视", 
-            "37 四川卫视", "38 河南卫视", "39 福建东南卫视", "40 贵州卫视", "41 江西卫视", "42 辽宁卫视", "43 安徽卫视", "44 河北卫视", 
-            "45 山东卫视", "46 广东卫视", "47 广东珠江", "48 广东新闻", "49 广东民生", "50 广东体育", "51 大湾区卫视", "52 大湾区卫视（海外版）", 
-            "53 经济科教", "54 广东影视", "55 4K超高清", "56 广东少儿", "57 嘉佳卡通", "58 南方购物", "59 岭南戏曲", "60 现代教育", 
-            "61 广东移动", "62 荔枝台", "63 纪录片", "64 GRTN健康频道", "65 GRTN文化频道", "66 GRTN生活频道", "67 GRTN教育频道", 
-            "68 深圳卫视", "69 都市频道", "70 电视剧频道", "71 公共频道", "72 财经频道", "73 娱乐生活频道", "74 少儿频道", "75 移动电视", 
-            "76 宜和购物频道", "77 国际频道", "78 广西卫视", "79 综艺旅游频道", "80 都市频道", "81 影视频道", "82 新闻频道", "83 国际频道", 
-            "84 乐思购频道", "85 移动数字电视频道", "86 CETV1", "87 CETV2", "88 CETV4", "89 河北卫视", "90 经济生活", "91 农民频道", 
-            "92 河北都市", "93 河北影视剧", "94 少儿科教", "95 河北公共", "96 湖南经视", "97 湖南娱乐", "98 湖南电影", "99 湖南都市", 
-            "100 湖南电视剧", "101 金鹰纪实", "102 湖南爱晚", "103 金鹰卡通", "104 国际频道", "105 先锋乒羽", "106 茶频道", "107 快乐垂钓", 
-            "108 长沙综合", "109 长沙政法", "110 海南卫视", "111 三沙卫视", "112 海南自贸", "113 海南新闻", "114 海南公共", "115 海南文旅", 
-            "116 海南少儿", "117 陕西卫视", "118 新闻资讯", "119 都市青春", "120 生活频道", "121 影视频道", "122 公共频道", "123 体育休闲", 
-            "124 农林卫视", "125 移动电视", "126 内蒙古卫视", "127 蒙古语卫视", "128 新闻综合", "129 经济生活", "130 少儿频道", "131 文体娱乐", 
-            "132 农牧频道", "133 蒙古语文化", "134 云南卫视", "135 云南都市", "136 云南娱乐", "137 康旅频道", "138 澜湄国际", "139 云南少儿", 
-            "140 兵团卫视", "141 山西卫视", "142 黄河电视台", "143 山西经济与科技", "144 山西影视", "145 山西社会与法制", "146 山西文体生活" };
+            private final String[] channelNames = { "1 CCTV-1 综合", "2 CCTV-2 财经", "3 CCTV-3 综艺", "4 CCTV-4 中文国际（亚）", "5 CCTV-5 体育", "6 CCTV-5+ 体育赛事", "7 CCTV-6 电影", "8 CCTV-7 国防军事", "9 CCTV-8 电视剧", "10 CCTV-9 纪录", "11 CCTV-10 科教", "12 CCTV-11 戏曲", "13 CCTV-12 社会与法", "14 CCTV-13 新闻", "15 CCTV-14 少儿", "16 CCTV-15 音乐", "17 CCTV-16 奥林匹克", "18 CCTV-17 农业农村", "19 CCTV-4 中文国际（欧）", "20 CCTV-4 中文国际（美）", "21 CCTV4k", "22 CCTV风云剧场", "23 CCTV第一剧场", "24 CCTV怀旧剧场", "25 北京卫视", "26 江苏卫视", "27 东方卫视", "28 浙江卫视", "29 湖南卫视", "30 湖北卫视", "31 广东卫视", "32 广西卫视", "33 黑龙江卫视", "34 海南卫视", "35 重庆卫视", "36 深圳卫视", "37 四川卫视", "38 河南卫视", "39 福建东南卫视", "40 贵州卫视", "41 江西卫视", "42 辽宁卫视", "43 安徽卫视", "44 河北卫视", "45 山东卫视", "46 广东卫视", "47 深圳卫视", "48 都市频道", "49 三沙卫视", "50 内蒙古卫视", "51 新闻综合", "52 文体娱乐", "53 蒙古语文化", "54 云南卫视", "55 云南都市", "56 云南娱乐", "57 康旅频道", "58 澜湄国际" };
 
     private int currentLiveIndex;
 
@@ -535,6 +458,18 @@ public class MainActivity extends AppCompatActivity {
                         """
 
                                      function AutoFullscreen() {
+                                         // 1. 检查当前是否已经是全屏状态 (标准API + Webkit前缀)
+                                         if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
+                                             console.log('AutoFullscreen: Already in fullscreen mode.');
+                                             return; 
+                                         }
+                                         
+                                         // 2. 针对特定播放器（如腾讯视频）的额外检查：如果按钮显示“退出全屏”，则认为是全屏状态
+                                         var txpBtn = document.querySelector('.txp_btn_fullscreen');
+                                         if (txpBtn && txpBtn.getAttribute('data-state') === 'fullscreen') {
+                                              return;
+                                         }
+
                                          // 定义可能的全屏按钮选择器列表
                                          var selectors = [
                                              '#player_pagefullscreen_yes_player', // 央视旧版
@@ -555,10 +490,20 @@ public class MainActivity extends AppCompatActivity {
                                          for (var i = 0; i < selectors.length; i++) {
                                              var btn = document.querySelector(selectors[i]);
                                              if (btn) {
+                                                 // 再次检查按钮本身的状态（部分播放器全屏后按钮class不变，但title变）
+                                                 var title = btn.getAttribute('title');
+                                                 var ariaLabel = btn.getAttribute('aria-label');
+                                                 if ((title && (title.includes('退出') || title.includes('Exit'))) || 
+                                                     (ariaLabel && (ariaLabel.includes('退出') || ariaLabel.includes('Exit')))) {
+                                                     console.log('AutoFullscreen: Button indicates exit mode, skipping.');
+                                                     clicked = true; // 视为已处理
+                                                     break;
+                                                 }
+
                                                  // 尝试点击
                                                  btn.click();
                                                  
-                                                 // 尝试确保音量开启 (部分自动播放策略需要)
+                                                 // 尝试确保音量开启
                                                  var video = document.querySelector('video');
                                                  if (video) {
                                                      video.volume = 1;
@@ -571,11 +516,11 @@ public class MainActivity extends AppCompatActivity {
                                          }
                                          
                                          if (!clicked) {
-                                             // 没找到按钮，继续轮询 (每100ms)
-                                              setTimeout(() => { AutoFullscreen(); }, 100);
+                                             // 没找到按钮，继续轮询 (每200ms)
+                                              setTimeout(() => { AutoFullscreen(); }, 200);
                                          } else {
-                                             // 已点击，但为了防止页面刷新或动态加载，延时通过再次检查 (可选，降低频率)
-                                             setTimeout(() => { AutoFullscreen(); }, 2000);
+                                             // 已点击或已在全屏模式，停止轮询，避免重复点击导致退出全屏
+                                             console.log('AutoFullscreen: Success or Skipped. Stopping loop.');
                                          }
                                      }
                                 AutoFullscreen();
@@ -699,6 +644,18 @@ public class MainActivity extends AppCompatActivity {
                         """
 
                                      function AutoFullscreen() {
+                                         // 1. 检查当前是否已经是全屏状态 (标准API + Webkit前缀)
+                                         if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
+                                             console.log('AutoFullscreen: Already in fullscreen mode.');
+                                             return; 
+                                         }
+                                         
+                                         // 2. 针对特定播放器（如腾讯视频）的额外检查：如果按钮显示“退出全屏”，则认为是全屏状态
+                                         var txpBtn = document.querySelector('.txp_btn_fullscreen');
+                                         if (txpBtn && txpBtn.getAttribute('data-state') === 'fullscreen') {
+                                              return;
+                                         }
+
                                          // 定义可能的全屏按钮选择器列表
                                          var selectors = [
                                              '#player_pagefullscreen_yes_player', // 央视旧版
@@ -719,10 +676,20 @@ public class MainActivity extends AppCompatActivity {
                                          for (var i = 0; i < selectors.length; i++) {
                                              var btn = document.querySelector(selectors[i]);
                                              if (btn) {
+                                                 // 再次检查按钮本身的状态（部分播放器全屏后按钮class不变，但title变）
+                                                 var title = btn.getAttribute('title');
+                                                 var ariaLabel = btn.getAttribute('aria-label');
+                                                 if ((title && (title.includes('退出') || title.includes('Exit'))) || 
+                                                     (ariaLabel && (ariaLabel.includes('退出') || ariaLabel.includes('Exit')))) {
+                                                     console.log('AutoFullscreen: Button indicates exit mode, skipping.');
+                                                     clicked = true; // 视为已处理
+                                                     break;
+                                                 }
+
                                                  // 尝试点击
                                                  btn.click();
                                                  
-                                                 // 尝试确保音量开启 (部分自动播放策略需要)
+                                                 // 尝试确保音量开启
                                                  var video = document.querySelector('video');
                                                  if (video) {
                                                      video.volume = 1;
@@ -735,11 +702,11 @@ public class MainActivity extends AppCompatActivity {
                                          }
                                          
                                          if (!clicked) {
-                                             // 没找到按钮，继续轮询 (每100ms)
-                                              setTimeout(() => { AutoFullscreen(); }, 100);
+                                             // 没找到按钮，继续轮询 (每200ms)
+                                              setTimeout(() => { AutoFullscreen(); }, 200);
                                          } else {
-                                             // 已点击，但为了防止页面刷新或动态加载，延时通过再次检查 (可选，降低频率)
-                                             setTimeout(() => { AutoFullscreen(); }, 2000);
+                                             // 已点击或已在全屏模式，停止轮询，避免重复点击导致退出全屏
+                                             console.log('AutoFullscreen: Success or Skipped. Stopping loop.');
                                          }
                                      }
                                 AutoFullscreen();
